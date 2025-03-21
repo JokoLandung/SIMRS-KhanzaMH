@@ -12,6 +12,7 @@
 
 package simrskhanza;
 
+import bridging.ICareRiwayatPerawatan;
 import surat.SuratKontrol;
 import kepegawaian.DlgCariDokter;
 import kepegawaian.DlgCariPetugas;
@@ -184,6 +185,9 @@ import rekammedis.RMTimeOutSebelumInsisi;
 import rekammedis.RMTransferPasienAntarRuang;
 import rekammedis.RMTriaseIGD;
 import rekammedis.RMUjiFungsiKFR;
+import rekammedis.DlgDataAlergiPasien;
+import rekammedis.RMFormulirFisioterapi;
+import rekammedis.RMKunjunganFisioterapi;
 
 /**
  *
@@ -206,7 +210,7 @@ public final class DlgRawatJalan extends javax.swing.JDialog {
             Suspen_Piutang_Tindakan_Ralan="",Tindakan_Ralan="",Beban_Jasa_Medik_Dokter_Tindakan_Ralan="",Utang_Jasa_Medik_Dokter_Tindakan_Ralan="",
             Beban_Jasa_Medik_Paramedis_Tindakan_Ralan="",Utang_Jasa_Medik_Paramedis_Tindakan_Ralan="",Beban_KSO_Tindakan_Ralan="",Utang_KSO_Tindakan_Ralan="",
             Beban_Jasa_Sarana_Tindakan_Ralan="",Utang_Jasa_Sarana_Tindakan_Ralan="",HPP_BHP_Tindakan_Ralan="",Persediaan_BHP_Tindakan_Ralan="",
-            Beban_Jasa_Menejemen_Tindakan_Ralan="",Utang_Jasa_Menejemen_Tindakan_Ralan="";
+            Beban_Jasa_Menejemen_Tindakan_Ralan="",Utang_Jasa_Menejemen_Tindakan_Ralan="",variabel = "",poli = "";
     private boolean[] pilih; 
     private String[] kode,nama,kategori;
     private double[] totaltnd,bagianrs,bhp,jmdokter,jmperawat,kso,menejemen;
@@ -1402,6 +1406,9 @@ public final class DlgRawatJalan extends javax.swing.JDialog {
         TEvaluasi = new widget.TextArea();
         LingkarPerut = new widget.TextBox();
         Btn5Soap = new widget.Button();
+        BtnIcare = new widget.Button();
+        Btnberkasditerima = new widget.Button();
+        BtnInputAlergi = new widget.Button();
         BtnTemplatePemeriksaan = new widget.Button();
         internalFrame6 = new widget.InternalFrame();
         Scroll4 = new widget.ScrollPane();
@@ -2617,6 +2624,58 @@ public final class DlgRawatJalan extends javax.swing.JDialog {
         });
         panelGlass12.add(Btn5Soap);
         Btn5Soap.setBounds(374, 40, 28, 23);
+        
+        BtnIcare.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/PatientFile.png"))); // NOI18N
+        BtnIcare.setMnemonic('4');
+        BtnIcare.setText("Riwayat Icare BPJS");
+        BtnIcare.setToolTipText("ALt+4");
+        BtnIcare.setName("BtnIcare"); // NOI18N
+        BtnIcare.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnIcareActionPerformed(evt);
+            }
+        });
+        panelGlass12.add(BtnIcare);
+        BtnIcare.setBounds(910, 10, 160, 23);
+        
+        Btnberkasditerima.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/peminjaman.png"))); // NOI18N
+        Btnberkasditerima.setMnemonic('S');
+        Btnberkasditerima.setText("Berkas Diterima");
+        Btnberkasditerima.setToolTipText("Alt+S");
+        Btnberkasditerima.setName("Btnberkasditerima"); // NOI18N
+        Btnberkasditerima.setPreferredSize(new java.awt.Dimension(100, 30));
+        Btnberkasditerima.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnberkasditerimaActionPerformed(evt);
+            }
+        });
+        Btnberkasditerima.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                BtnberkasditerimaKeyPressed(evt);
+            }
+        });
+        panelGlass12.add(Btnberkasditerima);
+        Btnberkasditerima.setBounds(910, 40, 150, 30);
+
+        BtnInputAlergi.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/Syringe.png"))); // NOI18N
+        BtnInputAlergi.setMnemonic('S');
+        BtnInputAlergi.setText("Input Alergi");
+        BtnInputAlergi.setToolTipText("Alt+S");
+        BtnInputAlergi.setName("BtnInputAlergi"); // NOI18N
+        BtnInputAlergi.setPreferredSize(new java.awt.Dimension(100, 30));
+        BtnInputAlergi.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnInputAlergiActionPerformed(evt);
+            }
+        });
+        BtnInputAlergi.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                BtnInputAlergiKeyPressed(evt);
+            }
+        });
+        panelGlass12.add(BtnInputAlergi);
+        BtnInputAlergi.setBounds(910, 80, 130, 30);
+
 
         BtnTemplatePemeriksaan.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/190.png"))); 
         BtnTemplatePemeriksaan.setMnemonic('4');
@@ -9924,6 +9983,60 @@ private void BtnEditKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
         }
     }
     
+    private void BtnIcareActionPerformed(java.awt.event.ActionEvent evt) {                                         
+        this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+        variabel = Sequel.cariIsi("select maping_dokter_dpjpvclaim.kd_dokter_bpjs from maping_dokter_dpjpvclaim where maping_dokter_dpjpvclaim.kd_dokter=?", KdPeg.getText());
+        if (!variabel.isEmpty()) {
+            akses.setform("DlgReg");
+            ICareRiwayatPerawatan dlgki = new ICareRiwayatPerawatan(null, false);
+            dlgki.setSize(internalFrame1.getWidth() - 20, internalFrame1.getHeight() - 20);
+            dlgki.setLocationRelativeTo(internalFrame1);
+            dlgki.setPasien(Sequel.cariIsi("select pasien.no_peserta from pasien where pasien.no_rkm_medis=?", TNoRM.getText()), variabel);
+            dlgki.setVisible(true);
+        } else {
+            JOptionPane.showMessageDialog(null, "Maaf, Dokter tidak terdaftar di mapping dokter BPJS...!!!");
+        }
+        this.setCursor(Cursor.getDefaultCursor());
+    }
+    
+    private void BtnberkasditerimaActionPerformed(java.awt.event.ActionEvent evt) {                                                  
+        Sequel.menyimpan("mutasi_berkas", "'" + TNoRw.getText() + "','Sudah Diterima',now(),now(),'0000-00-00 00:00:00','0000-00-00 00:00:00','0000-00-00 00:00:00'", "status='Sudah Diterima',diterima=now()", "no_rawat='" + TNoRw.getText() + "'");
+        Valid.editTable("reg_periksa", "no_rawat", TNoRw, "stts='Berkas Diterima'");
+        poli = Sequel.cariIsi("select reg_periksa.kd_poli from reg_periksa where reg_periksa.no_rawat=?", TNoRw.getText());
+        if (TNoRw.getText().trim().equals("") || TNoRM.getText().trim().equals("")) {
+            Valid.textKosong(TNoRw, "No Rawat dan No RM");
+        } else {
+            Sequel.queryu("delete from antripoli where kd_dokter='" + KdDok.getText() + "' and kd_poli='" + poli + "'");
+            Sequel.queryu("insert into antripoli values('" + KdDok.getText() + "','" + poli + "','1','" + TNoRw.getText() + "')");
+        }
+    }
+    
+    private void BtnberkasditerimaKeyPressed(java.awt.event.KeyEvent evt) {                                             
+        // TODO add your handling code here:
+    }
+    
+    private void BtnInputAlergiActionPerformed(java.awt.event.ActionEvent evt) {                                               
+        if (TNoRw.getText().trim().equals("")) {
+            JOptionPane.showMessageDialog(null, "Maaf, Silahkan anda pilih dulu dengan menklik data pada table...!!!");
+            TCari.requestFocus();
+        } else {
+            this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+            DlgDataAlergiPasien alergi = new DlgDataAlergiPasien(null, false);
+            alergi.isCek();
+            alergi.emptTeks();
+            alergi.setSize(internalFrame1.getWidth() - 20, internalFrame1.getHeight() - 20);
+            alergi.setLocationRelativeTo(internalFrame1);
+            alergi.setNoRm(TNoRw.getText(), TNoRM.getText(), TPasien.getText());
+            alergi.tampil();
+            alergi.setVisible(true);
+            this.setCursor(Cursor.getDefaultCursor());
+        }
+    }                                              
+
+    private void BtnInputAlergiKeyPressed(java.awt.event.KeyEvent evt) {                                          
+        // TODO add your handling code here:
+    }       
+    
     /**
     * @param args the command line arguments
     */
@@ -9990,7 +10103,9 @@ private void BtnEditKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
     private widget.Button BtnEdukasiPasienKeluarga;
     private widget.Button BtnHapus;
     private widget.Button BtnHasilPemeriksaanUSG;
+    private widget.Button BtnIcare;
     private widget.Button BtnInformasiObat;
+    private widget.Button BtnInputAlergi;
     private widget.Button BtnInputObat;
     private widget.Button BtnJadwalOperasi;
     private widget.Button BtnKamar;
@@ -10055,6 +10170,7 @@ private void BtnEditKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
     private widget.Button BtnTransferAntarRuang;
     private widget.Button BtnTriaseIGD;
     private widget.Button BtnUjiFungsiKFR;
+    private widget.Button Btnberkasditerima;
     private widget.TextArea Catatan;
     private widget.CekBox ChkAccor;
     private widget.CekBox ChkInput;
