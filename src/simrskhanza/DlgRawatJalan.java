@@ -165,6 +165,7 @@ import rekammedis.RMSignOutSebelumMenutupLuka;
 import rekammedis.RMSkriningAdiksiNikotin;
 import rekammedis.RMSkriningAnemia;
 import rekammedis.RMSkriningDiabetesMelitus;
+import rekammedis.RMSkriningHipertensi;
 import rekammedis.RMSkriningInstrumenSDQ;
 import rekammedis.RMSkriningKankerKolorektal;
 import rekammedis.RMSkriningKekerasanPadaPerempuan;
@@ -10396,7 +10397,7 @@ private void BtnEditKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                           BtnCatatanObservasiInduksiPersalinan,BtnPermintaanKonsultasiMedik,BtnSkriningMerokokUsiaRemaja,BtnSkriningKekerasanPadaWanita,BtnSkriningObesitas,BtnSkriningRisikoKankerPayudara,BtnSkriningRisikoKankerParu,
                           BtnSkriningKesehatanGigiMulutremaja,BtnSkriningTBC,BtnCatatanAnastesiSedasi,BtnSkriningPUMA,BtnSkriningAdiksiNikotin,BtnSkriningThalassemia,BtnSkriningInstrumenSDQ,BtnSkriningInstrumenSRQ,
                           BtnChecklistPemberianFibrinolitik,BtnSkriningKankerKolorektal,BtnPenilaianPsikologKlinis,BtnPenilaianDerajatDehidrasi,BtnHasilPemeriksaanECHO,BtnPenilaianBayiBaruLahir,BtnSkriningDiabetesMelitus,
-                          BtnLaporanTindakan,BtnPelaksanaanInformasiEdukasi,BtnLayananKedokteranFisikRehabilitasi,BtnSkriningKesehatanGigiMulutBalita,BtnSkriningAnemia;    
+                          BtnLaporanTindakan,BtnPelaksanaanInformasiEdukasi,BtnLayananKedokteranFisikRehabilitasi,BtnSkriningKesehatanGigiMulutBalita,BtnSkriningAnemia,BtnSkriningHipertensi;    
     private void tampilDr() {
         Valid.tabelKosong(tabModeDr);
         try{
@@ -11198,6 +11199,10 @@ private void BtnEditKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
         }
         BtnSkriningAnemia.setVisible(akses.getskrining_anemia());   
         if(akses.getskrining_anemia()==true){
+            tinggi=tinggi+24;
+        }
+        BtnSkriningHipertensi.setVisible(akses.getsekrining_hipertensi());   
+        if(akses.getsekrining_hipertensi()==true){
             tinggi=tinggi+24;
         }
         BtnSkriningTBC.setVisible(akses.getskrining_tbc());   
@@ -12954,6 +12959,19 @@ private void BtnEditKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
         BtnSkriningAnemia.setRoundRect(false);
         BtnSkriningAnemia.addActionListener(this::BtnSkriningAnemiaActionPerformed);
         
+        BtnSkriningHipertensi = new widget.Button();
+        BtnSkriningHipertensi.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/item.png"))); 
+        BtnSkriningHipertensi.setText("Skrining Hipertensi");
+        BtnSkriningHipertensi.setFocusPainted(false);
+        BtnSkriningHipertensi.setFont(new java.awt.Font("Tahoma", 0, 11)); 
+        BtnSkriningHipertensi.setGlassColor(new java.awt.Color(255, 255, 255));
+        BtnSkriningHipertensi.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        BtnSkriningHipertensi.setMargin(new java.awt.Insets(1, 1, 1, 1));
+        BtnSkriningHipertensi.setName("BtnSkriningHipertensi"); 
+        BtnSkriningHipertensi.setPreferredSize(new java.awt.Dimension(190, 23));
+        BtnSkriningHipertensi.setRoundRect(false);
+        BtnSkriningHipertensi.addActionListener(this::BtnSkriningHipertensiActionPerformed);
+        
         BtnSkriningTBC = new widget.Button();
         BtnSkriningTBC.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/item.png"))); 
         BtnSkriningTBC.setText("Skrining TBC");
@@ -13201,6 +13219,7 @@ private void BtnEditKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
         FormMenu.add(BtnSkriningKankerKolorektal);
         FormMenu.add(BtnSkriningDiabetesMelitus);
         FormMenu.add(BtnSkriningAnemia);
+        FormMenu.add(BtnSkriningHipertensi);
         FormMenu.add(BtnSkriningNutrisiDewasa);
         FormMenu.add(BtnSkriningNutrisiLansia);
         FormMenu.add(BtnSkriningNutrisiAnak);
