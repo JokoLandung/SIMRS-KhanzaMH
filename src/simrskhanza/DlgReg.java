@@ -17605,7 +17605,7 @@ public final class DlgReg extends javax.swing.JDialog {
         MnSkriningAnemia.setName("MnSkriningAnemia");
         MnSkriningAnemia.setPreferredSize(new java.awt.Dimension(280, 26));
         MnSkriningAnemia.addActionListener(this::MnSkriningAnemiaActionPerformed);
-
+        
         MnSkriningHipertensi = new javax.swing.JMenuItem();
         MnSkriningHipertensi.setBackground(new java.awt.Color(255, 255, 254));
         MnSkriningHipertensi.setFont(new java.awt.Font("Tahoma", 0, 11));
@@ -17975,7 +17975,6 @@ public final class DlgReg extends javax.swing.JDialog {
         MnRMSkrining.add(MnSkriningKankerKolorektal);
         MnRMSkrining.add(MnSkriningDiabetesMelitus);
         MnRMSkrining.add(MnSkriningAnemia);
-
         MnRMSkrining.add(MnSkriningHipertensi);
         
         MnEdukasi.add(MnEdukasiPasienKeluarga);
