@@ -193,4 +193,7 @@
     <entry key="URLAPISERTISIGN">https://api-stag.sertisign.id/v2/poa/signing-qr</entry>
     <entry key="APIKEYSERTISIGN">Qvbk11KTaeMu98WE5RITeYdqppEJrrfzN7HisMpfOheYGYPFOLs1CW4idp8VpXV1</entry>
     <entry key="URLDOKUMENSERTISIGN">https://sertisign.com/webhook</entry>
+    <entry key="KEYEKLAIM">l4nh5eVYrLAER/I2A4b3Tw==</entry>
+    <entry key="WSEKLAIM">l4nh5eVYrLAER/I2A4b3Tw==</entry>
+    <entry key="KELASRSEKLAIM">DS</entry>
 </properties>

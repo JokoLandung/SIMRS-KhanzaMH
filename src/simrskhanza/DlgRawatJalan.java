@@ -62,7 +62,6 @@ import rekammedis.RMDataResumePasien;
 import permintaan.DlgPermintaanLaboratorium;
 import permintaan.DlgPermintaanPelayananInformasiObat;
 import permintaan.DlgPermintaanRadiologi;
-import rekammedis.DlgDataAlergiPasien;
 import rekammedis.MasterCariTemplatePemeriksaan;
 import rekammedis.RMCari5SOAPTerakhir;
 import rekammedis.RMCatatanADIMEGizi;
@@ -187,6 +186,10 @@ import rekammedis.RMTimeOutSebelumInsisi;
 import rekammedis.RMTransferPasienAntarRuang;
 import rekammedis.RMTriaseIGD;
 import rekammedis.RMUjiFungsiKFR;
+import rekammedis.RMGenerateKlaim;
+import rekammedis.DlgDataAlergiPasien;
+import rekammedis.RMFormulirFisioterapi;
+import rekammedis.RMKunjunganFisioterapi;
 
 /**
  *
@@ -1527,6 +1530,7 @@ public final class DlgRawatJalan extends javax.swing.JDialog {
         ChkAccor = new widget.CekBox();
         ScrollMenu = new widget.ScrollPane();
         FormMenu = new widget.PanelBiasa();
+        BtnGenerateBerkasKlaim = new widget.Button();
         BtnRiwayat = new widget.Button();
         BtnResepObat = new widget.Button();
         BtnCopyResep = new widget.Button();
@@ -3678,6 +3682,25 @@ public final class DlgRawatJalan extends javax.swing.JDialog {
         FormMenu.setName("FormMenu"); 
         FormMenu.setPreferredSize(new java.awt.Dimension(150, 483));
         FormMenu.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 1, 1));
+        
+        BtnGenerateBerkasKlaim.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/item.png"))); // NOI18N
+        BtnGenerateBerkasKlaim.setText("Generate Berkas Klaim");
+        BtnGenerateBerkasKlaim.setFocusPainted(false);
+        BtnGenerateBerkasKlaim.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
+        BtnGenerateBerkasKlaim.setGlassColor(new java.awt.Color(255, 255, 255));
+        BtnGenerateBerkasKlaim.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        BtnGenerateBerkasKlaim.setMargin(new java.awt.Insets(1, 1, 1, 1));
+        BtnGenerateBerkasKlaim.setMaximumSize(new java.awt.Dimension(98, 18));
+        BtnGenerateBerkasKlaim.setMinimumSize(new java.awt.Dimension(98, 18));
+        BtnGenerateBerkasKlaim.setName("BtnGenerateBerkasKlaim"); // NOI18N
+        BtnGenerateBerkasKlaim.setPreferredSize(new java.awt.Dimension(190, 23));
+        BtnGenerateBerkasKlaim.setRoundRect(false);
+        BtnGenerateBerkasKlaim.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnGenerateBerkasKlaimActionPerformed(evt);
+            }
+        });
+        FormMenu.add(BtnGenerateBerkasKlaim);
 
         BtnRiwayat.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/item.png"))); 
         BtnRiwayat.setText("Riwayat Pasien");
@@ -10052,7 +10075,23 @@ private void BtnEditKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
 
     private void BtnInputAlergiKeyPressed(java.awt.event.KeyEvent evt) {                                          
         // TODO add your handling code here:
-    }                                         
+    }
+    
+    private void BtnGenerateBerkasKlaimActionPerformed(java.awt.event.ActionEvent evt) {                                                       
+        if (TNoRw.getText().trim().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Maaf, Silahkan anda pilih dulu pasien...!!!");
+            TCari.requestFocus();
+        } else {
+            this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+            RMGenerateKlaim resume = new RMGenerateKlaim(null, true);
+            resume.setNoRm(TNoRM.getText(), TPasien.getText());
+            resume.setNoRawat(TNoRw.getText());
+            resume.setSize(internalFrame1.getWidth(), internalFrame1.getHeight());
+            resume.setLocationRelativeTo(internalFrame1);
+            resume.setVisible(true);
+            this.setCursor(Cursor.getDefaultCursor());
+        }
+    }          
 
     
     /**
@@ -10072,6 +10111,7 @@ private void BtnEditKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private widget.Button BtnGenerateBerkasKlaim;
     private widget.Button Btnberkasditerima;
     private widget.Button BtnInputAlergi;
     private widget.Button BtnIcare;

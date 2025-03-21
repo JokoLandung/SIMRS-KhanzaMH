@@ -67,7 +67,103 @@ public final class sekuel {
     public sekuel(){
         super();
     }
+    
+    public String autoNomorSmc(String table, String kolom, int panjang, String pad, String tanggal)
+    {
+        return autoNomorSmc(null, table, kolom, panjang, pad, tanggal);
+    }
+    
+    public String autoNomorSmc(String prefix, String table, String kolom, int panjang, String pad, String tanggal)
+    {
+        String output = "";
+        
+        String sql = "select " +
+            "concat(?, date_format(?, '%Y%m%d'), " +
+            "lpad(ifnull(max(convert(right(" + table + "." + kolom + ", ?), signed)), 0) + 1, ?, ?)) " +
+            "from " + table + " " +
+            "where " + table + "." + kolom + " like concat(?, date_format(?, '%Y%m%d'), '%')";
+        
+        if (prefix == null) {
+            sql = "select " +
+                "concat(date_format(?, '%Y%m%d'), " +
+                "lpad(ifnull(max(convert(right(" + table + "." + kolom + ", ?), signed)), 0) + 1, ?, ?)) " +
+                "from " + table + " " +
+                "where " + table + "." + kolom + " like concat(date_format(?, '%Y%m%d'), '%')";
+        }
+        
+        try {
+            ps = connect.prepareStatement(sql);
+            
+            try {
+                if (prefix == null) {
+                    ps.setString(1, tanggal);
+                    ps.setInt(2, panjang);
+                    ps.setInt(3, panjang);
+                    ps.setString(4, pad);
+                    ps.setString(5, tanggal);
+                } else {
+                    ps.setString(1, prefix);
+                    ps.setString(2, tanggal);
+                    ps.setInt(3, panjang);
+                    ps.setInt(4, panjang);
+                    ps.setString(5, pad);
+                    ps.setString(6, prefix);
+                    ps.setString(7, tanggal);
+                }
+                
+                rs = ps.executeQuery();
 
+                if (rs.next()) {
+                    output = rs.getString(1);
+                }
+            } catch (Exception e) {
+                System.out.println("Notif : " + e);
+            } finally {
+                if (rs != null) {
+                    rs.close();
+                }
+                
+                if (ps != null) {
+                    ps.close();
+                }
+            }
+        } catch (Exception e) {
+            System.out.println("Notif : " + e);
+        }
+        
+        return output;
+    }
+    
+    public String autoNomorSmc(String prefix, String table, String kolom, int panjang, String pad, String tanggal, int next) {
+        String output = "";
+        
+        String sql = "select " +
+            "concat(?, date_format(?, '%Y%m%d'), " +
+            "lpad(ifnull(max(convert(right(" + table + "." + kolom + ", ?), signed)), 0) + ?, ?, ?)) " +
+            "from " + table + " " +
+            "where " + table + "." + kolom + " like concat(?, date_format(?, '%Y%m%d'), '%')";
+        
+        try (PreparedStatement ps = connect.prepareStatement(sql)) {
+            ps.setString(1, prefix);
+            ps.setString(2, tanggal);
+            ps.setInt(3, panjang);
+            ps.setInt(4, next);
+            ps.setInt(5, panjang);
+            ps.setString(6, pad);
+            ps.setString(7, prefix);
+            ps.setString(8, tanggal);
+            
+            try (ResultSet rs = ps.executeQuery()) {
+                if (rs.next()) {
+                    output = rs.getString(1);
+                }
+            }
+        } catch (Exception e) {
+            System.out.println("Notif : " + e);
+        }
+        
+        return output;
+    }
 
     public void menyimpan(String table,String value,String sama){
         try {

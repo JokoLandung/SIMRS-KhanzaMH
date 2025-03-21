@@ -1074,9 +1074,10 @@ public class DlgPermintaanKonsultasiMedik extends javax.swing.JDialog {
             Valid.textKosong(NoPermintaan,"No.Permintaan");
         }else if(KdDokter.getText().trim().equals("")||NmDokter.getText().trim().equals("")){
             Valid.textKosong(BtnDokter,"Dokter Konsul");
-        }else if(KdDokter.getText().equals(KdDokterDikonsuli.getText())){
-           JOptionPane.showMessageDialog(null,"Maaf, Dokter yang dikonsuli jangan diri sendiri...!");
-        }else if(KdDokterDikonsuli.getText().trim().equals("")||NmDokterDikonsuli.getText().trim().equals("")){
+        }//else if(KdDokter.getText().equals(KdDokterDikonsuli.getText())){
+           //JOptionPane.showMessageDialog(null,"Maaf, Dokter yang dikonsuli jangan diri sendiri...!");
+        //}
+         else if(KdDokterDikonsuli.getText().trim().equals("")||NmDokterDikonsuli.getText().trim().equals("")){
             Valid.textKosong(BtnDokterDIkonsuli,"Dokter Dikonsuli");
         }else if(DiagnosaKerja.getText().trim().equals("")){
             Valid.textKosong(DiagnosaKerja,"Diagnosa Kerja");
@@ -1435,7 +1436,7 @@ private void ChkInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
                         "inner join pasien on reg_periksa.no_rkm_medis=pasien.no_rkm_medis inner join penjab on reg_periksa.kd_pj=penjab.kd_pj  "+
                         "inner join dokter as dokterkonsul on konsultasi_medik.kd_dokter=dokterkonsul.kd_dokter "+
                         "inner join dokter as dokterdikonsuli on konsultasi_medik.kd_dokter_dikonsuli=dokterdikonsuli.kd_dokter "+
-                        "inner join jawaban_konsultasi_medik on jawaban_konsultasi_medik.no_permintaan=konsultasi_medik.no_permintaan "+
+                        "left join jawaban_konsultasi_medik on jawaban_konsultasi_medik.no_permintaan=konsultasi_medik.no_permintaan "+
                         "where konsultasi_medik.no_permintaan='"+NoPermintaan.getText()+"' ",param);
                     this.setCursor(Cursor.getDefaultCursor());
                 }else{
@@ -1839,7 +1840,7 @@ private void ChkInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
         NoRw.setText(norwt);
         NoRM.setText(norm);
         NmPasien.setText(nama);
-        TCari.setText(norwt);
+        TCari.setText(norm);
         ChkInput.setSelected(true);
         isForm();
     }
@@ -1893,7 +1894,7 @@ private void ChkInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
     }
     
     private void autoNomor() {
-        Valid.autoNomer3("select ifnull(MAX(CONVERT(RIGHT(konsultasi_medik.no_permintaan,4),signed)),0) from konsultasi_medik where left(konsultasi_medik.tanggal,10)='"+Valid.SetTgl(TanggalPermintaan.getSelectedItem()+"")+"' ","KM"+Valid.SetTgl(TanggalPermintaan.getSelectedItem()+"").replaceAll("-",""),4,NoPermintaan);           
+        Valid.autoNomorSmc(NoPermintaan, "KM", "konsultasi_medik", "no_permintaan", 4, "0", TanggalPermintaan);
     }
 
     private void ganti() {
