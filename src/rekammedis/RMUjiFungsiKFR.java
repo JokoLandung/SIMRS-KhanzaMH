@@ -936,7 +936,7 @@ public final class RMUjiFungsiKFR extends javax.swing.JDialog {
                     "from uji_fungsi_kfr inner join reg_periksa on uji_fungsi_kfr.no_rawat=reg_periksa.no_rawat "+
                     "inner join pasien on reg_periksa.no_rkm_medis=pasien.no_rkm_medis "+
                     "inner join dokter on uji_fungsi_kfr.kd_dokter=dokter.kd_dokter where "+
-                    "uji_fungsi_kfr.tanggal between '"+Valid.SetTgl(DTPCari1.getSelectedItem()+"")+" 00:00:00' and '"+Valid.SetTgl(DTPCari2.getSelectedItem()+"")+" 23:59:59' order by uji_fungsi_kfr.tanggal ",param);
+                    "uji_fungsi_kfr.tanggal between '"+Valid.SetTgl(DTPCari1.getSelectedItem()+"")+" 00:00:00' and '"+Valid.SetTgl(DTPCari2.getSelectedItem()+"")+" 23:59:59' order by uji_fungsi_kfr.no_rawat ",param);
             }else{
                 Valid.MyReportqry("rptUjiFungsiKFR.jasper","report","::[ Data Uji Fugsi/Prosedur KFR ]::",
                     "select reg_periksa.no_rawat,pasien.no_rkm_medis,pasien.nm_pasien,reg_periksa.umurdaftar,reg_periksa.sttsumur,"+
@@ -947,7 +947,7 @@ public final class RMUjiFungsiKFR extends javax.swing.JDialog {
                     "inner join dokter on uji_fungsi_kfr.kd_dokter=dokter.kd_dokter "+
                     "where uji_fungsi_kfr.tanggal between '"+Valid.SetTgl(DTPCari1.getSelectedItem()+"")+" 00:00:00' and '"+Valid.SetTgl(DTPCari2.getSelectedItem()+"")+" 23:59:59' and "+
                     "(reg_periksa.no_rawat like '%"+TCari.getText().trim()+"%' or pasien.no_rkm_medis like '%"+TCari.getText().trim()+"%' or pasien.nm_pasien like '%"+TCari.getText().trim()+"%' or "+
-                    "uji_fungsi_kfr.kd_dokter like '%"+TCari.getText().trim()+"%' or dokter.nm_dokter like '%"+TCari.getText().trim()+"%') order by uji_fungsi_kfr.tanggal ",param);
+                    "uji_fungsi_kfr.kd_dokter like '%"+TCari.getText().trim()+"%' or dokter.nm_dokter like '%"+TCari.getText().trim()+"%') order by uji_fungsi_kfr.no_rawat ",param);
             }  
         }
         this.setCursor(Cursor.getDefaultCursor());
@@ -1196,7 +1196,7 @@ public final class RMUjiFungsiKFR extends javax.swing.JDialog {
                     "from uji_fungsi_kfr inner join reg_periksa on uji_fungsi_kfr.no_rawat=reg_periksa.no_rawat "+
                     "inner join pasien on reg_periksa.no_rkm_medis=pasien.no_rkm_medis "+
                     "inner join dokter on uji_fungsi_kfr.kd_dokter=dokter.kd_dokter where "+
-                    "uji_fungsi_kfr.tanggal between ? and ? order by uji_fungsi_kfr.tanggal ");
+                    "uji_fungsi_kfr.tanggal between ? and ? order by uji_fungsi_kfr.no_rawat ");
             }else{
                 ps=koneksi.prepareStatement(
                     "select reg_periksa.no_rawat,pasien.no_rkm_medis,pasien.nm_pasien,reg_periksa.umurdaftar,reg_periksa.sttsumur,"+
@@ -1207,7 +1207,7 @@ public final class RMUjiFungsiKFR extends javax.swing.JDialog {
                     "inner join dokter on uji_fungsi_kfr.kd_dokter=dokter.kd_dokter "+
                     "where uji_fungsi_kfr.tanggal between ? and ? and "+
                     "(reg_periksa.no_rawat like ? or pasien.no_rkm_medis like ? or pasien.nm_pasien like ? or uji_fungsi_kfr.kd_dokter like ? or dokter.nm_dokter like ?) "+
-                    "order by uji_fungsi_kfr.tanggal ");
+                    "order by uji_fungsi_kfr.no_rawat ");
             }
                 
             try {
