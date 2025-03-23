@@ -27501,12 +27501,12 @@ private void MnGantiPasswordBtnLogActionPerformed(java.awt.event.ActionEvent evt
                 jmlmenu++;
             }
             
-            if(akses.getsekrining_hipertensi()==true){
+            if(akses.getskrining_hipertensi()==true){
                 Panelmenu.add(btnSkriningHipertensi);
                 jmlmenu++;
             }
             
-            if(akses.getsekrining_kesehatan_penglihatan()==true){
+            if(akses.getskrining_kesehatan_penglihatan()==true){
                 Panelmenu.add(btnSkriningKesehatanPenglihatan);
                 jmlmenu++;
             }
@@ -33000,12 +33000,12 @@ private void MnGantiPasswordBtnLogActionPerformed(java.awt.event.ActionEvent evt
             jmlmenu++;
         }
         
-        if(akses.getsekrining_hipertensi()==true){
+        if(akses.getskrining_hipertensi()==true){
             Panelmenu.add(btnSkriningHipertensi);
             jmlmenu++;
         }
         
-        if(akses.getsekrining_kesehatan_penglihatan()==true){
+        if(akses.getskrining_kesehatan_penglihatan()==true){
             Panelmenu.add(btnSkriningKesehatanPenglihatan);
             jmlmenu++;
         }
@@ -40205,14 +40205,14 @@ private void MnGantiPasswordBtnLogActionPerformed(java.awt.event.ActionEvent evt
             }                
         }
         
-        if(akses.getsekrining_hipertensi()==true){
+        if(akses.getskrining_hipertensi()==true){
             if(btnSkriningHipertensi.getText().toLowerCase().trim().contains(TCari.getText().toLowerCase().trim())){
                 Panelmenu.add(btnSkriningHipertensi);
                 jmlmenu++;
             }                
         }
         
-        if(akses.getsekrining_kesehatan_penglihatan()==true){
+        if(akses.getskrining_kesehatan_penglihatan()==true){
             if(btnSkriningKesehatanPenglihatan.getText().toLowerCase().trim().contains(TCari.getText().toLowerCase().trim())){
                 Panelmenu.add(btnSkriningKesehatanPenglihatan);
                 jmlmenu++;
