@@ -1889,7 +1889,7 @@ private void ChkInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
                             rs2=ps2.executeQuery();
                             total=0;
                             while(rs2.next()){
-                                rincianobat=rs2.getString("nama_brng")+" "+rs2.getString("jml")+","+rincianobat;
+                                rincianobat="\n -"+rs2.getString("nama_brng")+" "+rs2.getString("jml")+","+rincianobat;
                             }                                
                         } catch (Exception e) {
                             System.out.println("Notifikasi Detail Racikan : "+e);
@@ -1935,6 +1935,8 @@ private void ChkInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
             param.put("norawat",TNoRw.getText());
             param.put("pasien",TPasien.getText());
             param.put("norm",TNoRm.getText());
+            param.put("lahir",Sequel.cariIsi("select DATE_FORMAT(pasien.tgl_lahir,'%d-%m-%Y')as tgl_lahir from pasien where pasien.no_rkm_medis =?",TNoRm.getText()));
+            param.put("umur",Sequel.cariIsi("select concat(umurdaftar,' ',sttsumur)as umur from reg_periksa where no_rawat =?",TNoRw.getText()));
             param.put("peresep",NmDokter.getText());
             param.put("noresep",NoResep.getText());
             finger=Sequel.cariIsi("select sha1(sidikjari.sidikjari) from sidikjari inner join pegawai on pegawai.id=sidikjari.id where pegawai.nik=?",KdDokter.getText());

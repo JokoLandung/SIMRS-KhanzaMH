@@ -874,7 +874,7 @@ public final class DlgResepObat1 extends javax.swing.JDialog {
         panelGlass9.add(jLabel19);
 
         DTPCari1.setForeground(new java.awt.Color(50, 70, 50));
-        DTPCari1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "05-03-2025 19:25:35" }));
+        DTPCari1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "12-11-2024 17:12:30" }));
         DTPCari1.setDisplayFormat("dd-MM-yyyy HH:mm:ss");
         DTPCari1.setName("DTPCari1"); // NOI18N
         DTPCari1.setOpaque(false);
@@ -888,7 +888,7 @@ public final class DlgResepObat1 extends javax.swing.JDialog {
         panelGlass9.add(jLabel21);
 
         DTPCari2.setForeground(new java.awt.Color(50, 70, 50));
-        DTPCari2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "05-03-2025 19:25:35" }));
+        DTPCari2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "12-11-2024 17:12:30" }));
         DTPCari2.setDisplayFormat("dd-MM-yyyy HH:mm:ss");
         DTPCari2.setName("DTPCari2"); // NOI18N
         DTPCari2.setOpaque(false);
@@ -1018,7 +1018,7 @@ public final class DlgResepObat1 extends javax.swing.JDialog {
         jLabel8.setBounds(0, 42, 95, 23);
 
         DTPBeri.setForeground(new java.awt.Color(50, 70, 50));
-        DTPBeri.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "05-03-2025" }));
+        DTPBeri.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "12-11-2024" }));
         DTPBeri.setDisplayFormat("dd-MM-yyyy");
         DTPBeri.setName("DTPBeri"); // NOI18N
         DTPBeri.setOpaque(false);

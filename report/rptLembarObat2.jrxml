@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Created with Jaspersoft Studio version 6.16.0.final using JasperReports Library version 6.5.1  -->
+<!-- Created with Jaspersoft Studio version 6.8.0.final using JasperReports Library version 6.8.0-2ed8dfabb690ff337a5797129f2cd92902b0c87b  -->
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" pageWidth="311" pageHeight="595" orientation="Landscape" columnWidth="277" leftMargin="17" rightMargin="17" topMargin="17" bottomMargin="17" uuid="f71eddde-54e0-4c95-bb40-f4df24903e9d">
 	<property name="ireport.zoom" value="3.0"/>
 	<property name="ireport.x" value="0"/>
@@ -26,6 +26,14 @@
 	<parameter name="peresep" class="java.lang.String"/>
 	<parameter name="noresep" class="java.lang.String"/>
 	<parameter name="finger" class="java.lang.String"/>
+	<parameter name="kamar" class="java.lang.String"/>
+	<parameter name="namakamar" class="java.lang.String"/>
+	<parameter name="status" class="java.lang.String"/>
+	<parameter name="lahir" class="java.lang.String"/>
+	<parameter name="umur" class="java.lang.String"/>
+	<parameter name="alergi" class="java.lang.String"/>
+	<parameter name="bb" class="java.lang.String"/>
+	<parameter name="sep" class="java.lang.String"/>
 	<queryString>
 		<![CDATA[select * from temporary_resep]]>
 	</queryString>
@@ -188,7 +196,7 @@
 		<band splitType="Stretch"/>
 	</background>
 	<title>
-		<band height="133" splitType="Stretch">
+		<band height="178" splitType="Stretch">
 			<textField>
 				<reportElement x="48" y="14" width="229" height="14" uuid="31498202-9007-4a25-814a-401a5c13ac09"/>
 				<textElement textAlignment="Center">
@@ -248,7 +256,7 @@
 				<text><![CDATA[No. R.M.]]></text>
 			</staticText>
 			<staticText>
-				<reportElement mode="Transparent" x="2" y="81" width="57" height="9" uuid="ace49622-3dd8-4493-adf1-786efc5635ff"/>
+				<reportElement mode="Transparent" x="2" y="96" width="57" height="9" uuid="ace49622-3dd8-4493-adf1-786efc5635ff"/>
 				<textElement markup="none">
 					<font fontName="Tahoma" size="7"/>
 					<paragraph lineSpacing="Single"/>
@@ -256,7 +264,7 @@
 				<text><![CDATA[Jenis Pasien]]></text>
 			</staticText>
 			<staticText>
-				<reportElement mode="Transparent" x="2" y="90" width="57" height="9" uuid="56db52a1-97ee-4f2d-a345-4d3c70dc56fa"/>
+				<reportElement mode="Transparent" x="2" y="105" width="57" height="9" uuid="56db52a1-97ee-4f2d-a345-4d3c70dc56fa"/>
 				<textElement markup="none">
 					<font fontName="Tahoma" size="7"/>
 					<paragraph lineSpacing="Single"/>
@@ -264,7 +272,7 @@
 				<text><![CDATA[Pemberi Resep]]></text>
 			</staticText>
 			<staticText>
-				<reportElement mode="Transparent" x="2" y="99" width="57" height="9" uuid="ec67475b-5c21-44ee-9ab3-b0406dccc6bc"/>
+				<reportElement mode="Transparent" x="2" y="114" width="57" height="9" uuid="ec67475b-5c21-44ee-9ab3-b0406dccc6bc"/>
 				<textElement markup="none">
 					<font fontName="Tahoma" size="7"/>
 					<paragraph lineSpacing="Single"/>
@@ -288,7 +296,7 @@
 				<text><![CDATA[:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement mode="Transparent" x="59" y="90" width="5" height="9" uuid="3e9219d2-6e3b-44ca-8701-4b1ef2887fa9"/>
+				<reportElement mode="Transparent" x="59" y="105" width="5" height="9" uuid="3e9219d2-6e3b-44ca-8701-4b1ef2887fa9"/>
 				<textElement markup="none">
 					<font fontName="Tahoma" size="7"/>
 					<paragraph lineSpacing="Single"/>
@@ -296,7 +304,7 @@
 				<text><![CDATA[:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement mode="Transparent" x="59" y="81" width="5" height="9" uuid="dee3092e-5d8c-431c-be08-9301f2d10372"/>
+				<reportElement mode="Transparent" x="59" y="96" width="5" height="9" uuid="dee3092e-5d8c-431c-be08-9301f2d10372"/>
 				<textElement markup="none">
 					<font fontName="Tahoma" size="7"/>
 					<paragraph lineSpacing="Single"/>
@@ -304,7 +312,7 @@
 				<text><![CDATA[:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement mode="Transparent" x="59" y="99" width="5" height="9" uuid="d4725de7-1540-4490-9ed2-40fea2a76c89"/>
+				<reportElement mode="Transparent" x="59" y="114" width="5" height="9" uuid="d4725de7-1540-4490-9ed2-40fea2a76c89"/>
 				<textElement markup="none">
 					<font fontName="Tahoma" size="7"/>
 					<paragraph lineSpacing="Single"/>
@@ -328,7 +336,7 @@
 				<text><![CDATA[No. Rawat]]></text>
 			</staticText>
 			<staticText>
-				<reportElement mode="Transparent" x="106" y="112" width="65" height="19" uuid="23d77141-2d57-4ccb-ba7c-01397c0cc3be"/>
+				<reportElement mode="Transparent" x="106" y="159" width="65" height="19" uuid="23d77141-2d57-4ccb-ba7c-01397c0cc3be"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
 					<font fontName="Tahoma" size="10" isBold="true"/>
 					<paragraph lineSpacing="Single"/>
@@ -357,32 +365,185 @@
 				<textFieldExpression><![CDATA[$P{norawat}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="64" y="90" width="126" height="9" uuid="a4dd6735-384f-405f-a22a-a1b6ead62a69"/>
+				<reportElement x="64" y="105" width="126" height="9" uuid="a4dd6735-384f-405f-a22a-a1b6ead62a69"/>
 				<textElement>
 					<font size="7"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$P{peresep}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="64" y="81" width="126" height="9" uuid="61106c6f-5148-4067-b816-a0b0721ff315"/>
+				<reportElement x="64" y="96" width="126" height="9" uuid="61106c6f-5148-4067-b816-a0b0721ff315"/>
 				<textElement>
 					<font size="7"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$P{penanggung}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="64" y="99" width="126" height="9" uuid="dae4002f-edd7-409b-94fb-f48a11113692"/>
+				<reportElement x="64" y="114" width="126" height="9" uuid="dae4002f-edd7-409b-94fb-f48a11113692"/>
 				<textElement>
 					<font size="7"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$P{noresep}]]></textFieldExpression>
 			</textField>
 			<line>
-				<reportElement x="0" y="110" width="277" height="1" uuid="45a268fe-4879-4414-b5a0-57b8c3821a33"/>
+				<reportElement x="0" y="160" width="277" height="1" uuid="45a268fe-4879-4414-b5a0-57b8c3821a33"/>
 				<graphicElement>
 					<pen lineWidth="2.0" lineStyle="Double"/>
 				</graphicElement>
 			</line>
+			<staticText>
+				<reportElement mode="Transparent" x="2" y="80" width="57" height="9" uuid="c75f3245-67a7-49f9-9fe4-a88c8ccf1797"/>
+				<textElement markup="none">
+					<font fontName="Tahoma" size="7"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<text><![CDATA[Tanggal Lahir]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Transparent" x="59" y="80" width="5" height="9" uuid="f52cdad0-9e33-46b4-9b3a-bf778bc4daa6"/>
+				<textElement markup="none">
+					<font fontName="Tahoma" size="7"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="64" y="80" width="126" height="9" uuid="ceb7598a-051f-4a23-b6f0-6a224c25fe81"/>
+				<textElement>
+					<font size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{lahir}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Transparent" x="2" y="88" width="57" height="9" uuid="6a43f43a-3b8c-4451-a07b-ed7af281c1d3"/>
+				<textElement markup="none">
+					<font fontName="Tahoma" size="7"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<text><![CDATA[Umur]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Transparent" x="59" y="88" width="5" height="9" uuid="7d1ce70e-8efc-4f1d-a0c8-9a6cea551180"/>
+				<textElement markup="none">
+					<font fontName="Tahoma" size="7"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="64" y="88" width="126" height="9" uuid="0aad6f80-d5c8-404c-93f6-a04524ebaa29"/>
+				<textElement>
+					<font size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{umur}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Transparent" x="2" y="122" width="57" height="9" uuid="991bd329-a04e-42cb-8c40-c0946faafec6"/>
+				<textElement markup="none">
+					<font fontName="Tahoma" size="7"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<text><![CDATA[Alergi]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Transparent" x="59" y="122" width="5" height="9" uuid="268c08b9-fc6e-4a1a-86b5-243b6b0c9fef"/>
+				<textElement markup="none">
+					<font fontName="Tahoma" size="7"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Transparent" x="59" y="138" width="5" height="9" uuid="6c6cbb17-8294-49ea-a5de-c73fb19cbd40"/>
+				<textElement markup="none">
+					<font fontName="Tahoma" size="7"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="64" y="140" width="126" height="9" uuid="e282619d-d640-4084-b401-9075460708e1"/>
+				<textElement>
+					<font size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{namakamar}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Transparent" x="2" y="139" width="57" height="9" uuid="fa131c85-c3b5-48db-959f-ef4f5b07a159"/>
+				<textElement markup="none">
+					<font fontName="Tahoma" size="7"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{kamar}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="196" y="52" width="81" height="20" uuid="eb333c87-1a0b-48f2-b7a4-46e98daf5225"/>
+				<textElement textAlignment="Center">
+					<font fontName="Tahoma"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{status}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Transparent" x="2" y="131" width="57" height="9" uuid="b5167b74-d27a-47da-b33a-9d681020cd91"/>
+				<textElement markup="none">
+					<font fontName="Tahoma" size="7"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<text><![CDATA[Berat Badan]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Transparent" x="59" y="131" width="5" height="9" uuid="b5d61e2c-d61e-4651-aae0-19974af2bdf6"/>
+				<textElement markup="none">
+					<font fontName="Tahoma" size="7"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="64" y="122" width="125" height="9" uuid="08693b4e-3d1f-4a30-8afd-136b101547a3"/>
+				<textElement>
+					<font fontName="Tahoma" size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{alergi}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="64" y="131" width="32" height="10" uuid="7f510c23-a922-453e-98b6-4cdcae128a13"/>
+				<textElement>
+					<font fontName="Tahoma" size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{bb}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Transparent" x="90" y="131" width="57" height="9" uuid="a97713c6-f4c7-4d2f-9e5a-fc52444e4559"/>
+				<textElement markup="none">
+					<font fontName="Tahoma" size="7"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<text><![CDATA[kg]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Transparent" x="59" y="147" width="5" height="9" uuid="183e607c-c660-4eef-a981-88d06538000a"/>
+				<textElement markup="none">
+					<font fontName="Tahoma" size="7"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="64" y="149" width="126" height="9" uuid="f456648f-cc90-4f88-b288-f61fffca20f5"/>
+				<textElement>
+					<font size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{sep}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Transparent" x="2" y="148" width="57" height="9" uuid="44548e3a-1e8c-486f-9e94-562da3c59417"/>
+				<textElement markup="none">
+					<font fontName="Tahoma" size="7"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<text><![CDATA[No SEP]]></text>
+			</staticText>
 		</band>
 	</title>
 	<pageHeader>
