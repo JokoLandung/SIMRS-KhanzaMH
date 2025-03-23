@@ -11,6 +11,7 @@ import fungsi.sekuel;
 import fungsi.validasi;
 import fungsi.akses;
 import inventory.DlgBarang;
+import inventory.DlgCariKfa;
 import java.awt.Cursor;
 import java.awt.Dimension;
 import java.awt.event.KeyEvent;
@@ -41,6 +42,7 @@ public final class SatuSehatMapingObatAlkes extends javax.swing.JDialog {
     private ResultSet rs;    
     private int i=0;
     private DlgBarang barang=new DlgBarang(null,false);
+    private DlgCariKfa kfa=new DlgCariKfa(null,false);
 
     /** Creates new form DlgJnsPerawatanRalan
      * @param parent
@@ -149,6 +151,7 @@ public final class SatuSehatMapingObatAlkes extends javax.swing.JDialog {
                 if(barang.getTable().getSelectedRow()!= -1){                    
                     KodeBarang.setText(barang.getTable().getValueAt(barang.getTable().getSelectedRow(),1).toString());
                     NamaBarang.setText(barang.getTable().getValueAt(barang.getTable().getSelectedRow(),2).toString());
+                    DenominatorCode.setText(barang.getTable().getValueAt(barang.getTable().getSelectedRow(),6).toString());
                 }
                 btnBarang.requestFocus();
             }
@@ -174,6 +177,50 @@ public final class SatuSehatMapingObatAlkes extends javax.swing.JDialog {
             @Override
             public void keyReleased(KeyEvent e) {}
         });
+        
+        kfa.addWindowListener(new WindowListener() {
+            @Override
+            public void windowOpened(WindowEvent e) {}
+            @Override
+            public void windowClosing(WindowEvent e) {}
+            @Override
+            public void windowClosed(WindowEvent e) {
+                if(kfa.getTable().getSelectedRow()!= -1){                    
+                    KFACode.setText(kfa.getTable().getValueAt(kfa.getTable().getSelectedRow(),0).toString());
+                    KFADisplay.setText(kfa.getTable().getValueAt(kfa.getTable().getSelectedRow(),1).toString());
+                    FormCode.setText(kfa.getTable().getValueAt(kfa.getTable().getSelectedRow(),2).toString());
+                    FormDisplay.setText(kfa.getTable().getValueAt(kfa.getTable().getSelectedRow(),3).toString());
+                    NumoratorCode.setText(kfa.getTable().getValueAt(kfa.getTable().getSelectedRow(),4).toString());
+                    RouteCode.setText(kfa.getTable().getValueAt(kfa.getTable().getSelectedRow(),6).toString());
+                    RouteDisplay.setText(kfa.getTable().getValueAt(kfa.getTable().getSelectedRow(),7).toString());
+                    
+                }
+                kfa.requestFocus();
+            }
+            @Override
+            public void windowIconified(WindowEvent e) {}
+            @Override
+            public void windowDeiconified(WindowEvent e) {}
+            @Override
+            public void windowActivated(WindowEvent e) {}
+            @Override
+            public void windowDeactivated(WindowEvent e) {}
+        }); 
+        
+        kfa.getTable().addKeyListener(new KeyListener() {
+            @Override
+            public void keyTyped(KeyEvent e) {}
+            @Override
+            public void keyPressed(KeyEvent e) {
+                if(e.getKeyCode()==KeyEvent.VK_SPACE){
+                    kfa.dispose();
+                }  
+            }
+            @Override
+            public void keyReleased(KeyEvent e) {}
+        });
+        
+        
         
         ChkInput.setSelected(false);
         isForm();
@@ -238,6 +285,7 @@ public final class SatuSehatMapingObatAlkes extends javax.swing.JDialog {
         RouteSystem = new widget.TextBox();
         jLabel18 = new widget.Label();
         RouteDisplay = new widget.TextBox();
+        btnKfa = new widget.Button();
 
         NamaBarang.setEditable(false);
         NamaBarang.setHighlighter(null);
@@ -496,7 +544,7 @@ public final class SatuSehatMapingObatAlkes extends javax.swing.JDialog {
         KodeBarang.setHighlighter(null);
         KodeBarang.setName("KodeBarang"); // NOI18N
         FormInput.add(KodeBarang);
-        KodeBarang.setBounds(212, 10, 100, 23);
+        KodeBarang.setBounds(240, 10, 90, 23);
 
         btnBarang.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/190.png"))); // NOI18N
         btnBarang.setMnemonic('1');
@@ -513,7 +561,7 @@ public final class SatuSehatMapingObatAlkes extends javax.swing.JDialog {
             }
         });
         FormInput.add(btnBarang);
-        btnBarang.setBounds(315, 10, 28, 23);
+        btnBarang.setBounds(330, 10, 28, 23);
 
         jLabel5.setText("Form Code :");
         jLabel5.setName("jLabel5"); // NOI18N
@@ -704,6 +752,23 @@ public final class SatuSehatMapingObatAlkes extends javax.swing.JDialog {
         });
         FormInput.add(RouteDisplay);
         RouteDisplay.setBounds(564, 190, 160, 23);
+
+        btnKfa.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/190.png"))); // NOI18N
+        btnKfa.setMnemonic('1');
+        btnKfa.setToolTipText("Alt+1");
+        btnKfa.setName("btnKfa"); // NOI18N
+        btnKfa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnKfaActionPerformed(evt);
+            }
+        });
+        btnKfa.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                btnKfaKeyPressed(evt);
+            }
+        });
+        FormInput.add(btnKfa);
+        btnKfa.setBounds(210, 10, 28, 23);
 
         PanelInput.add(FormInput, java.awt.BorderLayout.CENTER);
 
@@ -1021,6 +1086,17 @@ public final class SatuSehatMapingObatAlkes extends javax.swing.JDialog {
         Valid.pindah(evt, RouteSystem, BtnSimpan);
     }//GEN-LAST:event_RouteDisplayKeyPressed
 
+    private void btnKfaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnKfaActionPerformed
+        kfa.isCek();
+        kfa.setSize(internalFrame1.getWidth()-20,internalFrame1.getHeight()-20);
+        kfa.setLocationRelativeTo(internalFrame1);
+        kfa.setVisible(true);
+    }//GEN-LAST:event_btnKfaActionPerformed
+
+    private void btnKfaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btnKfaKeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnKfaKeyPressed
+
     /**
     * @param args the command line arguments
     */
@@ -1068,6 +1144,7 @@ public final class SatuSehatMapingObatAlkes extends javax.swing.JDialog {
     private widget.ScrollPane Scroll;
     private widget.TextBox TCari;
     private widget.Button btnBarang;
+    private widget.Button btnKfa;
     private widget.InternalFrame internalFrame1;
     private widget.Label jLabel10;
     private widget.Label jLabel11;
@@ -1137,19 +1214,19 @@ public final class SatuSehatMapingObatAlkes extends javax.swing.JDialog {
 
     public void emptTeks() {
         KFACode.setText("");
-        KFASystem.setText("");
+      //  KFASystem.setText("");
         KodeBarang.setText("");
         NamaBarang.setText("");
         KFADisplay.setText("");
         FormCode.setText("");
-        FormSystem.setText("");
+       // FormSystem.setText("");
         FormDisplay.setText("");
         NumoratorCode.setText("");
-        NemeratorSystem.setText("");
+       // NemeratorSystem.setText("");
         DenominatorCode.setText("");
-        DenominatorSystem.setText("");
+      //  DenominatorSystem.setText("");
         RouteCode.setText("");
-        RouteSystem.setText("");
+      //  RouteSystem.setText("");
         RouteDisplay.setText("");
         ChkInput.setSelected(true);
         isForm();
