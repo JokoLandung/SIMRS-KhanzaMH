@@ -2271,7 +2271,7 @@ private void ChkInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
             MenitMulai.setSelectedItem(tbObat.getValueAt(tbObat.getSelectedRow(),6).toString().substring(3,5));
             DetikMulai.setSelectedItem(tbObat.getValueAt(tbObat.getSelectedRow(),6).toString().substring(6,8));
             JamSelesai.setSelectedItem(tbObat.getValueAt(tbObat.getSelectedRow(),7).toString().substring(0,2));
-            DetikSelesai.setSelectedItem(tbObat.getValueAt(tbObat.getSelectedRow(),7).toString().substring(3,5));
+            MenitSelesai.setSelectedItem(tbObat.getValueAt(tbObat.getSelectedRow(),7).toString().substring(3,5));
             DetikSelesai.setSelectedItem(tbObat.getValueAt(tbObat.getSelectedRow(),7).toString().substring(6,8));
             Status.setSelectedItem(tbObat.getValueAt(tbObat.getSelectedRow(),8).toString());
             Kamar.setText(tbObat.getValueAt(tbObat.getSelectedRow(),9).toString());
