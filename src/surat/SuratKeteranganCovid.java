@@ -1183,7 +1183,7 @@ public final class SuratKeteranganCovid extends javax.swing.JDialog {
                 }
                 rs=ps.executeQuery();
                 while(rs.next()){
-                    tabMode.addRow(new Object[]{
+                    tabMode.addRow(new String[]{
                         rs.getString("no_surat"),rs.getString("no_rawat"),rs.getString("no_rkm_medis"),
                         rs.getString("nm_pasien"),rs.getString("kd_dokter"),rs.getString("nm_dokter"),
                         rs.getString("nip"),rs.getString("nama"),rs.getString("igm"),rs.getString("igg"),

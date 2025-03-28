@@ -713,7 +713,7 @@ public class DlgPerusahaan extends javax.swing.JDialog {
                         Kd.getText(),Password.getText()
                     });
                 }
-                tabMode.addRow(new Object[]{
+                tabMode.addRow(new String[]{
                     Kd.getText(),Nm.getText(),Alamat.getText(),Kota.getText(),Telp.getText(),Password.getText()
                 });
                 LCount.setText(""+tabMode.getRowCount());

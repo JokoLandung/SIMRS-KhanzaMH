@@ -2174,7 +2174,7 @@ public class DlgBookingPeriksa extends javax.swing.JFrame {
                 
                 rs=ps.executeQuery();
                 while(rs.next()){
-                    tabMode.addRow(new Object[]{
+                    tabMode.addRow(new String[]{
                         rs.getString("no_booking"),rs.getString("tanggal_booking"),rs.getString("tanggal"),rs.getString("nama"),rs.getString("alamat"),rs.getString("no_telp"),
                         rs.getString("email"),rs.getString("kd_poli"),rs.getString("nm_poli"),rs.getString("tambahan_pesan"),rs.getString("status")
                     });

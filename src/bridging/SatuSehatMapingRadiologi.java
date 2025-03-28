@@ -603,7 +603,7 @@ public final class SatuSehatMapingRadiologi extends javax.swing.JDialog {
             if(Sequel.menyimpantf("satu_sehat_mapping_radiologi","?,?,?,?,?,?,?","Mapping Tindakan Radiologi",7,new String[]{
                 KodePemeriksaan.getText(),Code.getText(),RadiologiSystem.getText(),Display.getText(),SampelCode.getText(),SampelRadiologiSystem.getText(),SampelDisplay.getText()
             })==true){
-                tabMode.addRow(new Object[]{
+                tabMode.addRow(new String[]{
                     Code.getText(),RadiologiSystem.getText(),KodePemeriksaan.getText(),NamaPemeriksaan.getText(),Display.getText(),SampelCode.getText(),SampelRadiologiSystem.getText(),SampelDisplay.getText()
                 });
                 emptTeks();

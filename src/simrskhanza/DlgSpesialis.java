@@ -399,7 +399,7 @@ public class DlgSpesialis extends javax.swing.JDialog {
             Valid.textKosong(TNm,"nama spesialis");
         }else{
             if(Sequel.menyimpantf("spesialis","'"+TKd.getText()+"','"+TNm.getText()+"'","Kode Spesialis")==true){
-                tabMode.addRow(new Object[]{
+                tabMode.addRow(new String[]{
                     TKd.getText(),TNm.getText()
                 });
                 emptTeks();

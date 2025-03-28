@@ -305,52 +305,52 @@ public final class SatuSehatReferensiPasien extends javax.swing.JDialog {
         Valid.tabelKosong(tabMode);
         SatuSehatCekNIK cekViaSatuSehat=new SatuSehatCekNIK();
         cekViaSatuSehat.tampil(search);
-        tabMode.addRow(new Object[]{
+        tabMode.addRow(new String[]{
             "ID Pasien",": "+cekViaSatuSehat.idpasien
         });
-        tabMode.addRow(new Object[]{
+        tabMode.addRow(new String[]{
             "Nomor KTP",": "+cekViaSatuSehat.noktp
         });
-        tabMode.addRow(new Object[]{
+        tabMode.addRow(new String[]{
             "Nama",": "+cekViaSatuSehat.name
         });
-        tabMode.addRow(new Object[]{
+        tabMode.addRow(new String[]{
             "Tanggal Lahir",": "+cekViaSatuSehat.birthDate
         });
-        tabMode.addRow(new Object[]{
+        tabMode.addRow(new String[]{
             "Jenis Kelamin",": "+cekViaSatuSehat.gender
         });
-        tabMode.addRow(new Object[]{
+        tabMode.addRow(new String[]{
             "Status Pernikahan",": "+cekViaSatuSehat.maritalStatus
         });
-        tabMode.addRow(new Object[]{
+        tabMode.addRow(new String[]{
             "Alamat Rumah",": "+cekViaSatuSehat.line
         });
-        tabMode.addRow(new Object[]{
+        tabMode.addRow(new String[]{
             "R.T.",": "+cekViaSatuSehat.rt
         });
-        tabMode.addRow(new Object[]{
+        tabMode.addRow(new String[]{
             "R.W.",": "+cekViaSatuSehat.rw
         });
-        tabMode.addRow(new Object[]{
+        tabMode.addRow(new String[]{
             "Kelurahan",": "+cekViaSatuSehat.village+" "+cekViaSatuSehat.villagename
         });
-        tabMode.addRow(new Object[]{
+        tabMode.addRow(new String[]{
             "Kecamatan",": "+cekViaSatuSehat.district+" "+cekViaSatuSehat.districtname
         });
-        tabMode.addRow(new Object[]{
+        tabMode.addRow(new String[]{
             "Kabupaten",": "+cekViaSatuSehat.city+" "+cekViaSatuSehat.cityname
         });
-        tabMode.addRow(new Object[]{
+        tabMode.addRow(new String[]{
             "Propinsi",": "+cekViaSatuSehat.province+" "+cekViaSatuSehat.provincename
         });
-        tabMode.addRow(new Object[]{
+        tabMode.addRow(new String[]{
             "Kode P.O.S.",": "+cekViaSatuSehat.postalCode
         });
-        tabMode.addRow(new Object[]{
+        tabMode.addRow(new String[]{
             "Nomor HP",": "+cekViaSatuSehat.phone
         });
-        tabMode.addRow(new Object[]{
+        tabMode.addRow(new String[]{
             "E-Mail",": "+cekViaSatuSehat.email
         });
     }

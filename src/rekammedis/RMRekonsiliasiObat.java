@@ -886,7 +886,7 @@ public final class RMRekonsiliasiObat extends javax.swing.JDialog {
         }else if(PemberianTerakhir.getText().trim().equals("")){
             Valid.textKosong(PemberianTerakhir,"Waktu Pemberian Terakhir");
         }else{
-            tabMode.addRow(new Object[]{
+            tabMode.addRow(new String[]{
                 NamaObat.getText(),DosisObat.getText(),Frekuensi.getText(),AturanPakai.getText(),PemberianTerakhir.getText(),TindakLanjut.getSelectedItem().toString(),PerubahanAturanPakai.getText()
             });
             emptTeksTambahRekon();

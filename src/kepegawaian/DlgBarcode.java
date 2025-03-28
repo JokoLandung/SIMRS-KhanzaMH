@@ -701,7 +701,7 @@ public final class DlgBarcode extends javax.swing.JDialog {
                 ps.setString(3,"%"+TCari.getText().trim()+"%");
                 rs=ps.executeQuery();
                 while(rs.next()){
-                    tabMode.addRow(new Object[]{
+                    tabMode.addRow(new String[]{
                         rs.getString(1),rs.getString(2),
                         rs.getString(3),rs.getString(4)
                     });

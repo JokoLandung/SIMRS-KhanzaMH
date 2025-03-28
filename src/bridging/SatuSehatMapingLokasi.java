@@ -2036,7 +2036,7 @@ public final class SatuSehatMapingLokasi extends javax.swing.JDialog {
                         if(Sequel.menyimpantf("satu_sehat_mapping_lokasi_ralan","?,?,?,?,?,?","Kode Poli/Kode Unit/ID Lokasi",6,new String[]{
                                 KodePoli.getText(),IDOrganisasi.getText(),response.asText(),Longitude.getText(),Latitude.getText(),Altitude.getText()
                             })==true){
-                            tabMode.addRow(new Object[]{
+                            tabMode.addRow(new String[]{
                                 KodePoli.getText(),NamaPoli.getText(),response.asText(),Longitude.getText(),Latitude.getText(),
                                 Altitude.getText(),KodeDepartemen.getText(),NamaDepartemen.getText(),IDOrganisasi.getText()
                             });
@@ -2156,7 +2156,7 @@ public final class SatuSehatMapingLokasi extends javax.swing.JDialog {
                         if(Sequel.menyimpantf("satu_sehat_mapping_lokasi_ranap","?,?,?,?,?,?","Kode Kamar/Kode Ruang/ID Lokasi",6,new String[]{
                                 KodeKamar.getText(),IDOrganisasiKamar.getText(),response.asText(),LongitudeKamar.getText(),LatitudeKamar.getText(),AltitudeKamar.getText()
                             })==true){
-                            tabModeKamar.addRow(new Object[]{
+                            tabModeKamar.addRow(new String[]{
                                 KodeKamar.getText(),NamaKamar.getText(),response.asText(),LongitudeKamar.getText(),LatitudeKamar.getText(),
                                 AltitudeKamar.getText(),KodeDepartemenKamar.getText(),NamaDepartemenKamar.getText(),IDOrganisasiKamar.getText()
                             });
@@ -2275,7 +2275,7 @@ public final class SatuSehatMapingLokasi extends javax.swing.JDialog {
                             if(Sequel.menyimpantf("satu_sehat_mapping_lokasi_ruangok","?,?,?,?,?","ID Lokasi",5,new String[]{
                                     IDOrganisasiRuangOK.getText(),response.asText(),LongitudeRuangOK.getText(),LatitudeRuangOK.getText(),AltitudeRuangOK.getText()
                                 })==true){
-                                tabModeRuangOK.addRow(new Object[]{
+                                tabModeRuangOK.addRow(new String[]{
                                     response.asText(),LongitudeRuangOK.getText(),LatitudeRuangOK.getText(),AltitudeRuangOK.getText(),KodeDepartemenRuangOK.getText(),NamaDepartemenRuangOK.getText(),IDOrganisasiRuangOK.getText()
                                 });
                                 emptTeks();
@@ -2396,7 +2396,7 @@ public final class SatuSehatMapingLokasi extends javax.swing.JDialog {
                             if(Sequel.menyimpantf("satu_sehat_mapping_lokasi_ruanglab","?,?,?,?,?","ID Lokasi",5,new String[]{
                                     IDOrganisasiRuangLabPK.getText(),response.asText(),LongitudeRuangLabPK.getText(),LatitudeRuangLabPK.getText(),AltitudeRuangLabPK.getText()
                                 })==true){
-                                tabModeRuangLabPK.addRow(new Object[]{
+                                tabModeRuangLabPK.addRow(new String[]{
                                     response.asText(),LongitudeRuangLabPK.getText(),LatitudeRuangLabPK.getText(),AltitudeRuangLabPK.getText(),KodeDepartemenRuangLabPK.getText(),NamaDepartemenRuangLabPK.getText(),IDOrganisasiRuangLabPK.getText()
                                 });
                                 emptTeks();
@@ -2517,7 +2517,7 @@ public final class SatuSehatMapingLokasi extends javax.swing.JDialog {
                             if(Sequel.menyimpantf("satu_sehat_mapping_lokasi_ruanglabpa","?,?,?,?,?","ID Lokasi",5,new String[]{
                                     IDOrganisasiRuangLabPA.getText(),response.asText(),LongitudeRuangLabPA.getText(),LatitudeRuangLabPA.getText(),AltitudeRuangLabPA.getText()
                                 })==true){
-                                tabModeRuangLabPA.addRow(new Object[]{
+                                tabModeRuangLabPA.addRow(new String[]{
                                     response.asText(),LongitudeRuangLabPA.getText(),LatitudeRuangLabPA.getText(),AltitudeRuangLabPA.getText(),KodeDepartemenRuangLabPA.getText(),NamaDepartemenRuangLabPA.getText(),IDOrganisasiRuangLabPA.getText()
                                 });
                                 emptTeks();
@@ -2638,7 +2638,7 @@ public final class SatuSehatMapingLokasi extends javax.swing.JDialog {
                             if(Sequel.menyimpantf("satu_sehat_mapping_lokasi_ruanglabmb","?,?,?,?,?","ID Lokasi",5,new String[]{
                                     IDOrganisasiRuangLabMB.getText(),response.asText(),LongitudeRuangLabMB.getText(),LatitudeRuangLabMB.getText(),AltitudeRuangLabMB.getText()
                                 })==true){
-                                tabModeRuangLabMB.addRow(new Object[]{
+                                tabModeRuangLabMB.addRow(new String[]{
                                     response.asText(),LongitudeRuangLabMB.getText(),LatitudeRuangLabMB.getText(),AltitudeRuangLabMB.getText(),KodeDepartemenRuangLabMB.getText(),NamaDepartemenRuangLabMB.getText(),IDOrganisasiRuangLabMB.getText()
                                 });
                                 emptTeks();
@@ -2759,7 +2759,7 @@ public final class SatuSehatMapingLokasi extends javax.swing.JDialog {
                             if(Sequel.menyimpantf("satu_sehat_mapping_lokasi_ruangrad","?,?,?,?,?","ID Lokasi",5,new String[]{
                                     IDOrganisasiRuangRadiologi.getText(),response.asText(),LongitudeRuangRadiologi.getText(),LatitudeRuangRadiologi.getText(),AltitudeRuangRadiologi.getText()
                                 })==true){
-                                tabModeRuangRadiologi.addRow(new Object[]{
+                                tabModeRuangRadiologi.addRow(new String[]{
                                     response.asText(),LongitudeRuangRadiologi.getText(),LatitudeRuangRadiologi.getText(),AltitudeRuangRadiologi.getText(),KodeDepartemenRuangRadiologi.getText(),NamaDepartemenRuangRadiologi.getText(),IDOrganisasiRuangRadiologi.getText()
                                 });
                                 emptTeks();
@@ -2882,7 +2882,7 @@ public final class SatuSehatMapingLokasi extends javax.swing.JDialog {
                         if(Sequel.menyimpantf("satu_sehat_mapping_lokasi_depo_farmasi","?,?,?,?,?,?","Kode Depo/Kode Farmasi",6,new String[]{
                                 KodeFarmasi.getText(),IDOrganisasiFarmasi.getText(),response.asText(),LongitudeFarmasi.getText(),LatitudeFarmasi.getText(),AltitudeFarmasi.getText()
                             })==true){
-                            tabModeRuangFarmasi.addRow(new Object[]{
+                            tabModeRuangFarmasi.addRow(new String[]{
                                 KodeFarmasi.getText(),NamaFarmasi.getText(),response.asText(),LongitudeFarmasi.getText(),LatitudeFarmasi.getText(),
                                 AltitudeFarmasi.getText(),KodeDepartemenFarmasi.getText(),NamaDepartemenFarmasi.getText(),IDOrganisasiFarmasi.getText()
                             });

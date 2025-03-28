@@ -469,7 +469,7 @@ public class DlgSetHargaToko extends javax.swing.JDialog {
             try {
                 rs=ps.executeQuery();
                 while(rs.next()){
-                    tabMode.addRow(new Object[]{
+                    tabMode.addRow(new String[]{
                         rs.getString(1),rs.getString(2),rs.getString(3)
                     });
                  }
