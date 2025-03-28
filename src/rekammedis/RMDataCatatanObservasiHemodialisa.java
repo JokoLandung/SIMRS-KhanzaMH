@@ -1523,6 +1523,7 @@ public final class RMDataCatatanObservasiHemodialisa extends javax.swing.JDialog
     private widget.Button btnPetugas;
     private widget.InternalFrame internalFrame1;
     private widget.Label jLabel12;
+    private widget.Label jLabel13;
     private widget.Label jLabel16;
     private widget.Label jLabel17;
     private widget.Label jLabel18;
@@ -1531,11 +1532,14 @@ public final class RMDataCatatanObservasiHemodialisa extends javax.swing.JDialog
     private widget.Label jLabel21;
     private widget.Label jLabel22;
     private widget.Label jLabel23;
+    private widget.Label jLabel24;
     private widget.Label jLabel25;
     private widget.Label jLabel26;
     private widget.Label jLabel27;
     private widget.Label jLabel28;
     private widget.Label jLabel29;
+    private widget.Label jLabel30;
+    private widget.Label jLabel31;
     private widget.Label jLabel35;
     private widget.Label jLabel4;
     private widget.Label jLabel6;
