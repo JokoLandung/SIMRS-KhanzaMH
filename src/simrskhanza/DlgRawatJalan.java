@@ -167,6 +167,7 @@ import rekammedis.RMSkriningAdiksiNikotin;
 import rekammedis.RMSkriningAnemia;
 import rekammedis.RMSkriningDiabetesMelitus;
 import rekammedis.RMSkriningHipertensi;
+import rekammedis.RMSkriningIndraPendengaran;
 import rekammedis.RMSkriningInstrumenSDQ;
 import rekammedis.RMSkriningKankerKolorektal;
 import rekammedis.RMSkriningKekerasanPadaPerempuan;
@@ -10057,6 +10058,24 @@ private void BtnEditKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
         }
     }
     
+    private void BtnSkriningIndraPendengaranActionPerformed(java.awt.event.ActionEvent evt) {
+        if(TPasien.getText().trim().equals("")||TNoRw.getText().trim().equals("")){
+            JOptionPane.showMessageDialog(null,"Maaf, Silahkan anda pilih dulu dengan menklik data pada table...!!!");
+            TCari.requestFocus();
+        }else{
+            this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+            RMSkriningIndraPendengaran form=new RMSkriningIndraPendengaran(null,false);
+            form.isCek();
+            form.setSize(internalFrame1.getWidth()-20,internalFrame1.getHeight()-20);
+            form.setLocationRelativeTo(internalFrame1);
+            form.setVisible(true);
+            form.emptTeks();
+            form.setNoRm(TNoRw.getText(),DTPCari2.getDate());
+            form.tampil();
+            this.setCursor(Cursor.getDefaultCursor());
+        }
+    }
+    
     /**
     * @param args the command line arguments
     */
@@ -10414,7 +10433,7 @@ private void BtnEditKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                           BtnSkriningKesehatanGigiMulutremaja,BtnSkriningTBC,BtnCatatanAnastesiSedasi,BtnSkriningPUMA,BtnSkriningAdiksiNikotin,BtnSkriningThalassemia,BtnSkriningInstrumenSDQ,BtnSkriningInstrumenSRQ,
                           BtnChecklistPemberianFibrinolitik,BtnSkriningKankerKolorektal,BtnPenilaianPsikologKlinis,BtnPenilaianDerajatDehidrasi,BtnHasilPemeriksaanECHO,BtnPenilaianBayiBaruLahir,BtnSkriningDiabetesMelitus,
                           BtnLaporanTindakan,BtnPelaksanaanInformasiEdukasi,BtnLayananKedokteranFisikRehabilitasi,BtnSkriningKesehatanGigiMulutBalita,BtnSkriningAnemia,BtnSkriningHipertensi,BtnSkriningKesehatanPenglihatan,
-                          BtnCatatanObservasiHemodialisa,BtnSkriningKesehatanGigiMulutDewasa,BtnSkriningRisikoKankerServiks,BtnCatatanCairanHemodialisa,BtnSkriningKesehatanGigiMulutLansia;   
+                          BtnCatatanObservasiHemodialisa,BtnSkriningKesehatanGigiMulutDewasa,BtnSkriningRisikoKankerServiks,BtnCatatanCairanHemodialisa,BtnSkriningKesehatanGigiMulutLansia,BtnSkriningIndraPendengaran;   
     
     private void tampilDr() {
         Valid.tabelKosong(tabModeDr);
@@ -11249,6 +11268,10 @@ private void BtnEditKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
         if(akses.getskrining_kesehatan_penglihatan()==true){
             tinggi=tinggi+24;
         }
+        BtnSkriningIndraPendengaran.setVisible(akses.getskrining_indra_pendengaran());   
+        if(akses.getskrining_indra_pendengaran()==true){
+            tinggi=tinggi+24;
+        }
         BtnSkriningTBC.setVisible(akses.getskrining_tbc());   
         if(akses.getskrining_tbc()==true){
             tinggi=tinggi+24;
@@ -11767,27 +11790,16 @@ private void BtnEditKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                 }
             }
 
-            pilih=null;
             pilih=new boolean[jml]; 
-            kode=null;
             kode=new String[jml];
-            nama=null;
             nama=new String[jml];
-            kategori=null;
             kategori=new String[jml];
-            totaltnd=null;
             totaltnd=new double[jml];  
-            bagianrs=null;
             bagianrs=new double[jml];
-            bhp=null;
             bhp=new double[jml];
-            jmdokter=null;
             jmdokter=new double[jml];
-            jmperawat=null;
             jmperawat=new double[jml];
-            kso=null;
             kso=new double[jml];
-            menejemen=null;
             menejemen=new double[jml];
 
             index=0;        
@@ -11907,27 +11919,16 @@ private void BtnEditKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                 }
             }
 
-            pilih=null;
             pilih=new boolean[jml]; 
-            kode=null;
             kode=new String[jml];
-            nama=null;
             nama=new String[jml];
-            kategori=null;
             kategori=new String[jml];
-            totaltnd=null;
             totaltnd=new double[jml];  
-            bagianrs=null;
             bagianrs=new double[jml];
-            bhp=null;
             bhp=new double[jml];
-            jmdokter=null;
             jmdokter=new double[jml];
-            jmperawat=null;
             jmperawat=new double[jml];
-            kso=null;
             kso=new double[jml];
-            menejemen=null;
             menejemen=new double[jml];
 
             index=0;        
@@ -12047,27 +12048,16 @@ private void BtnEditKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                 }
             }
 
-            pilih=null;
             pilih=new boolean[jml]; 
-            kode=null;
             kode=new String[jml];
-            nama=null;
             nama=new String[jml];
-            kategori=null;
             kategori=new String[jml];
-            totaltnd=null;
             totaltnd=new double[jml];  
-            bagianrs=null;
             bagianrs=new double[jml];
-            bhp=null;
             bhp=new double[jml];
-            jmdokter=null;
             jmdokter=new double[jml];
-            jmperawat=null;
             jmperawat=new double[jml];
-            kso=null;
             kso=new double[jml];
-            menejemen=null;
             menejemen=new double[jml];
 
             index=0;        
@@ -13081,7 +13071,7 @@ private void BtnEditKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
         BtnSkriningHipertensi.setRoundRect(false);
         BtnSkriningHipertensi.addActionListener(this::BtnSkriningHipertensiActionPerformed);
         
-        BtnSkriningKesehatanPenglihatan= new widget.Button();
+        BtnSkriningKesehatanPenglihatan = new widget.Button();
         BtnSkriningKesehatanPenglihatan.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/item.png"))); 
         BtnSkriningKesehatanPenglihatan.setText("Skrining Kesehatan Penglihatan");
         BtnSkriningKesehatanPenglihatan.setFocusPainted(false);
@@ -13093,6 +13083,19 @@ private void BtnEditKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
         BtnSkriningKesehatanPenglihatan.setPreferredSize(new java.awt.Dimension(190, 23));
         BtnSkriningKesehatanPenglihatan.setRoundRect(false);
         BtnSkriningKesehatanPenglihatan.addActionListener(this::BtnSkriningKesehatanPenglihatanActionPerformed);
+        
+        BtnSkriningIndraPendengaran = new widget.Button();
+        BtnSkriningIndraPendengaran.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/item.png"))); 
+        BtnSkriningIndraPendengaran.setText("Skrining Indra Pendengaran");
+        BtnSkriningIndraPendengaran.setFocusPainted(false);
+        BtnSkriningIndraPendengaran.setFont(new java.awt.Font("Tahoma", 0, 11)); 
+        BtnSkriningIndraPendengaran.setGlassColor(new java.awt.Color(255, 255, 255));
+        BtnSkriningIndraPendengaran.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        BtnSkriningIndraPendengaran.setMargin(new java.awt.Insets(1, 1, 1, 1));
+        BtnSkriningIndraPendengaran.setName("BtnSkriningIndraPendengaran"); 
+        BtnSkriningIndraPendengaran.setPreferredSize(new java.awt.Dimension(190, 23));
+        BtnSkriningIndraPendengaran.setRoundRect(false);
+        BtnSkriningIndraPendengaran.addActionListener(this::BtnSkriningIndraPendengaranActionPerformed);
         
         BtnSkriningTBC = new widget.Button();
         BtnSkriningTBC.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/item.png"))); 
@@ -13348,6 +13351,7 @@ private void BtnEditKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
         FormMenu.add(BtnSkriningAnemia);
         FormMenu.add(BtnSkriningHipertensi);
         FormMenu.add(BtnSkriningKesehatanPenglihatan);
+        FormMenu.add(BtnSkriningIndraPendengaran);
         FormMenu.add(BtnSkriningNutrisiDewasa);
         FormMenu.add(BtnSkriningNutrisiLansia);
         FormMenu.add(BtnSkriningNutrisiAnak);
