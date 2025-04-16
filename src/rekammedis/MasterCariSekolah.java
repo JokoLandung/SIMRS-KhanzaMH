@@ -369,13 +369,9 @@ public final class MasterCariSekolah extends javax.swing.JDialog {
             try {
                 rs=ps.executeQuery();
                 while(rs.next()){
-<<<<<<< HEAD
-                    tabMode.addRow(new String[]{rs.getString(1),rs.getString(2)});
-                    iyem=iyem+"{\"KodeSekolah\":\""+rs.getString(1)+"\",\"NamaSekolah\":\""+rs.getString(2)+"\"},";
-=======
                     tabMode.addRow(new Object[]{rs.getString(1),rs.getString(2)});
                     iyembuilder.append("{\"KodeSekolah\":\"").append(rs.getString(1)).append("\",\"NamaSekolah\":\"").append(rs.getString(2)).append("\"},");
->>>>>>> 4fae01922d5139daaf7b1441bfd60fe61c6e2e3c
+
                 }
             } catch (Exception e) {
                 System.out.println("Notifikasi : "+e);
